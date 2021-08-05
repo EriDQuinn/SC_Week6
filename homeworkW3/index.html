@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/cafbf8646d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="src/js-data-types.js"></script>
+    <link href="src/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row-1">
+        <h2 class="city">LONDON, UK</h2>
+        <hr />
+      </div>
+      <div class="row">
+        <div class="col">
+          <h2>20ºC</h2>
+          <h5>Viernes 2-jul-21</h5>
+        </div>
+        <div class="col">
+          <i class="fas fa-cloud-sun weather"></i>
+        </div>
+        <div class="col">
+          <br />
+          <h3>Nublado</h3>
+        </div>
+      </div>
+      <div class="card-deck">
+        <div class="card border-info">
+          <h6 class="card-title">Sabado</h6>
+          <i class="fas fa-cloud-sun sun-cloud"></i>
+          <p>21ºC</p>
+        </div>
+
+        <div class="card border-info">
+          <h6 class="card-title">Domingo</h6>
+          <i class="fas fa-cloud-sun-rain sun-cloud-rain"></i>
+          <p>17ºC</p>
+        </div>
+
+        <div class="card border-info">
+          <h6 class="card-title">Lunes</h6>
+          <i class="fas fa-cloud-sun-rain sun-cloud-rain"></i>
+          <p>19ºC</p>
+        </div>
+
+        <div class="card border-info">
+          <h6 class="card-title">Martes</h6>
+          <i class="fas fa-cloud-sun sun-cloud"></i>
+          <p>15ºC</p>
+        </div>
+
+        <div class="card border-info">
+          <h6 class="card-title">Miercoles</h6>
+          <i class="fas fa-cloud-sun-rain sun-cloud-rain"></i>
+          <p>10ºC</p>
+        </div>
+
+        <div class="card border-info">
+          <h6 class="card-title">Jueves</h6>
+          <i class="fas fa-cloud-sun-rain sun-cloud-rain"></i>
+          <p>7ºC</p>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput2"
+              autofocus="on"
+              placeholder="City"
+            />
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <button type="submit" class="btn btn-danger">Buscar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
