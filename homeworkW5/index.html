@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/cafbf8646d.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -18,11 +23,6 @@
       href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://kit.fontawesome.com/cafbf8646d.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="src/js-data-types.js"></script>
     <link href="src/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -33,8 +33,12 @@
       </div>
       <div class="row">
         <div class="col">
-          <h2>20ºC</h2>
-          <h5>Viernes 2-jul-21</h5>
+          <span><h2 class="temperature">20.0</h2></span>
+          <span class="units"
+            ><a href="#" id="celcius">ºC </a> /
+            <a href="#" id="fahrenheit">ºF</a>
+          </span>
+          <h5 id="date">Viernes 2-jul-21</h5>
         </div>
         <div class="col">
           <i class="fas fa-cloud-sun weather"></i>
@@ -54,7 +58,7 @@
         <div class="card border-info">
           <h6 class="card-title">Domingo</h6>
           <i class="fas fa-cloud-sun-rain sun-cloud-rain"></i>
-          <p>17ºC</p>
+          <p>17 ºC</p>
         </div>
 
         <div class="card border-info">
@@ -82,24 +86,37 @@
         </div>
       </div>
       <hr />
-      <div class="row">
-        <div class="col-sm">
-          <div class="form-group">
-            <input
-              type="text"
-              class="form-control"
-              id="formGroupExampleInput2"
-              autofocus="on"
-              placeholder="City"
-            />
+      <form id="search-form">
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group" id="form1">
+              <input
+                type="text"
+                class="form-control"
+                id="ciudadBuscar"
+                autofocus="on"
+                placeholder="City"
+              />
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group" id="form2">
+              <input
+                type="submit"
+                class="btn btn-danger"
+                id="buscaButton"
+                value="Buscar"
+              />
+              <input
+                type="submit"
+                class="btn btn-warning"
+                id="currentButton"
+                value="Current"
+              />
+            </div>
           </div>
         </div>
-        <div class="col-sm-2">
-          <div class="form-group">
-            <button type="submit" class="btn btn-danger">Buscar</button>
-          </div>
-        </div>
-      </div>
+      </form>
     </div>
   </body>
 </html>

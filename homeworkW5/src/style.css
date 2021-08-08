@@ -8,7 +8,8 @@ body {
 }
 
 h2,
-h3 {
+h3,
+span {
   display: inline;
   color: #709dd4;
 }
@@ -24,6 +25,9 @@ p {
   font-size: 20px;
   color: rgb(23, 103, 207);
   text-align: center;
+}
+span {
+  font-size: 1.5rem;
 }
 .city {
   color: #d59bf6;
