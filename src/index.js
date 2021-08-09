@@ -33,12 +33,17 @@ function buscar(event) {
 function showTemperature(response) {
   let newTemp = document.querySelector(".temperature");
   let description = document.querySelector(".description");
-  let humidity = document.querySelector(".Humidity");
+  let humidity = document.querySelector(".humidity");
+  //slet precipitation = document.querySelector(".precipitation");
+  let wind = document.querySelector(".wind-speed");
   let icon = document.querySelector("#icon");
   celciusTemp = Math.round(response.data.main.temp);
   newTemp.innerHTML = Math.round(response.data.main.temp);
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = Math.round(response.data.main.humidity);
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  //precipitation.innerHTML = response.data.precipitation.value;
+  console.log(response);
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -49,12 +54,22 @@ function showCurrentPlaceTemp(response) {
   let city = document.querySelector(".city");
   let newTemp = document.querySelector(".temperature");
   let description = document.querySelector(".description");
-  let humidity = document.querySelector(".Humidity");
+  let humidity = document.querySelector(".humidity");
+  let wind = document.querySelector(".wind-speed");
+  let icon = document.querySelector("#icon");
+  //slet precipitation = document.querySelector(".precipitation");
   city.innerHTML = `${response.data.sys.country}`;
   newTemp.innerHTML = Math.round(response.data.main.temp);
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = Math.round(response.data.main.humidity);
   celciusTemp = Math.round(response.data.main.temp);
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  //precipitation.innerHTML = response.data.precipitation.value;
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 function showPosition(response) {
   console.log("position");
