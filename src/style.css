@@ -13,13 +13,13 @@ span {
   display: inline;
   color: #235188;
   text-transform: capitalize;
+  font-size: 1.5rem;
 }
 h5 {
   color: #29c5bd;
   font-size: 1rem;
 }
 h6 {
-  font-size: 1rem;
   color: purple;
   text-align: center;
 }
@@ -41,12 +41,13 @@ span {
   color: #ca83f3;
   font-family: "Otomanopee One", sans-serif;
   text-transform: capitalize;
+  font-size: 2rem;
 }
 .description {
   color: rgb(86, 137, 202);
 }
 .humidity-span {
-  font-size: 20px;
+  font-size: 18px;
 }
 .container {
   display: block;
@@ -101,4 +102,15 @@ span {
   font-size: 40px;
   color: #2445a0;
   text-align: center;
+}
+#icon {
+  width: 120px;
+  height: 120px;
+  background-color: #6745bcc5;
+  border-radius: 50%;
+}
+#icon:hover {
+  background-color: #8260d6cb;
+  width: 130px;
+  height: 130px;
 }
