@@ -26,6 +26,11 @@ p {
   color: rgb(23, 103, 207);
   text-align: center;
 }
+.Git-link {
+  font-size: 15px;
+  color: rgb(45, 13, 87);
+  text-align: center;
+}
 span {
   font-size: 1.5rem;
 }
@@ -68,6 +73,7 @@ span {
 }
 .btn {
   float: right;
+  margin: 0.2em;
 }
 
 .weather {
