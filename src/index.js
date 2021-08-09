@@ -61,23 +61,26 @@ function buscar(event) {
       .get(`${apiUrl}&appid=${apiKey}&q=${cityInput.value}`)
       .then(showTemperature);
   } else {
-    alert("no city");
+    alert("No city to search");
   }
 }
 function showTemperature(response) {
-  console.log("temp");
-  let temp = Math.round(response.data.main.temp);
   let newTemp = document.querySelector(".temperature");
-  newTemp.innerHTML = `${temp}`;
+  let description = document.querySelector(".description");
+  let humidity = document.querySelector(".Humidity");
+  newTemp.innerHTML = Math.round(response.data.main.temp);
+  description.innerHTML = response.data.weather[0].description;
+  humidity.innerHTML = Math.round(response.data.main.humidity);
 }
 function showCurrentPlaceTemp(response) {
-  console.log("current");
-  let temp = Math.round(response.data.main.temp);
   let city = document.querySelector(".city");
-  city.innerHTML = `${response.data.sys.country}`;
   let newTemp = document.querySelector(".temperature");
-  newTemp.innerHTML = `${temp}`;
-  console.log(response);
+  let description = document.querySelector(".description");
+  let humidity = document.querySelector(".Humidity");
+  city.innerHTML = `${response.data.sys.country}`;
+  newTemp.innerHTML = Math.round(response.data.main.temp);
+  description.innerHTML = response.data.weather[0].description;
+  humidity.innerHTML = Math.round(response.data.main.humidity);
 }
 function showPosition(response) {
   console.log("position");
