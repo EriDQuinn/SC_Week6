@@ -1,38 +1,3 @@
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-let currentDate = new Date();
-let day = days[currentDate.getDay()];
-let numDay = currentDate.getUTCDate();
-let year = currentDate.getFullYear();
-let month = months[currentDate.getMonth()];
-let hour = currentDate.getHours();
-let minutes = currentDate.getMinutes();
-
-let date = document.querySelector("#date");
-date.innerHTML = `${day} ${numDay}, ${month} ${year}, ${hour} : ${minutes} `;
-
 function celcius(event) {
   event.preventDefault();
   let temp = document.querySelector(".temperature");
@@ -107,15 +72,52 @@ function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+let currentDate = new Date();
+let day = days[currentDate.getDay()];
+let numDay = currentDate.getUTCDate();
+let year = currentDate.getFullYear();
+let month = months[currentDate.getMonth()];
+let hour = currentDate.getHours();
+let minutes = currentDate.getMinutes();
+
+let date = document.querySelector("#date");
+date.innerHTML = `${day} ${numDay}, ${month} ${year}, ${hour} : ${minutes} `;
+
+let apiKey = "e36512df4df508262b473b23a2ee8768";
+let apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric";
+
 let celciusTemp = 20.0;
+
 let unidadTempC = document.querySelector("#celcius");
 unidadTempC.addEventListener("click", celcius);
 
 let unidadTempF = document.querySelector("#fahrenheit");
 unidadTempF.addEventListener("click", fahrenheit);
-
-let apiKey = "e36512df4df508262b473b23a2ee8768";
-let apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric";
 
 let busca = document.querySelector("#buscaButton");
 busca.addEventListener("click", buscar);
