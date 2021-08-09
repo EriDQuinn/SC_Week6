@@ -11,10 +11,12 @@ h2,
 h3,
 span {
   display: inline;
-  color: #709dd4;
+  color: #235188;
+  text-transform: capitalize;
 }
 h5 {
-  color: #6ae7ce;
+  color: #29c5bd;
+  font-size: 1rem;
 }
 h6 {
   font-size: 1rem;
@@ -25,6 +27,7 @@ p {
   font-size: 20px;
   color: rgb(23, 103, 207);
   text-align: center;
+  display: inline;
 }
 .Git-link {
   font-size: 15px;
@@ -35,8 +38,15 @@ span {
   font-size: 1.5rem;
 }
 .city {
-  color: #d59bf6;
+  color: #ca83f3;
   font-family: "Otomanopee One", sans-serif;
+  text-transform: capitalize;
+}
+.description {
+  color: rgb(86, 137, 202);
+}
+.humidity-span {
+  font-size: 20px;
 }
 .container {
   display: block;
