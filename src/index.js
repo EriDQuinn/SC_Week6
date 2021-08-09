@@ -36,16 +36,17 @@ date.innerHTML = `${day} ${numDay}, ${month} ${year}, ${hour} : ${minutes} `;
 function celcius(event) {
   event.preventDefault();
   let temp = document.querySelector(".temperature");
-  let tempC = Math.round(((temp.innerHTML - 32) * 5) / 9);
-  temp.innerHTML = `${tempC}`;
+  temp.innerHTML = celciusTemp;
+  unidadTempC.classList.add("active");
+  unidadTempF.classList.remove("active");
 }
 function fahrenheit(event) {
   event.preventDefault();
   let temp = document.querySelector(".temperature");
-  console.log(temp.innerHTML);
-  let tempF = Math.round(temp.innerHTML * 1.8) + 32;
-
+  let tempF = Math.round(celciusTemp * 1.8) + 32;
   temp.innerHTML = `${tempF}`;
+  unidadTempC.classList.remove("active");
+  unidadTempF.classList.add("active");
 }
 function buscar(event) {
   event.preventDefault();
@@ -69,6 +70,7 @@ function showTemperature(response) {
   let description = document.querySelector(".description");
   let humidity = document.querySelector(".Humidity");
   let icon = document.querySelector("#icon");
+  celciusTemp = Math.round(response.data.main.temp);
   newTemp.innerHTML = Math.round(response.data.main.temp);
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = Math.round(response.data.main.humidity);
@@ -87,6 +89,7 @@ function showCurrentPlaceTemp(response) {
   newTemp.innerHTML = Math.round(response.data.main.temp);
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = Math.round(response.data.main.humidity);
+  celciusTemp = Math.round(response.data.main.temp);
 }
 function showPosition(response) {
   console.log("position");
@@ -104,13 +107,7 @@ function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-
-let busca = document.querySelector("#buscaButton");
-busca.addEventListener("click", buscar);
-
-let currentB = document.querySelector("#currentButton");
-currentB.addEventListener("click", getPosition);
-
+let celciusTemp = 20.0;
 let unidadTempC = document.querySelector("#celcius");
 unidadTempC.addEventListener("click", celcius);
 
@@ -119,3 +116,9 @@ unidadTempF.addEventListener("click", fahrenheit);
 
 let apiKey = "e36512df4df508262b473b23a2ee8768";
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric";
+
+let busca = document.querySelector("#buscaButton");
+busca.addEventListener("click", buscar);
+
+let currentB = document.querySelector("#currentButton");
+currentB.addEventListener("click", getPosition);
