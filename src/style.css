@@ -114,3 +114,10 @@ span {
   width: 130px;
   height: 130px;
 }
+.units .active {
+  color: #235188;
+  cursor: default;
+}
+.units .active:hover {
+  text-decoration: none;
+}
