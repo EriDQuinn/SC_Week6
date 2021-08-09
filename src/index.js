@@ -57,7 +57,7 @@ function showCurrentPlaceTemp(response) {
   let humidity = document.querySelector(".humidity");
   let wind = document.querySelector(".wind-speed");
   let icon = document.querySelector("#icon");
-  //slet precipitation = document.querySelector(".precipitation");
+  //let precipitation = document.querySelector(".precipitation");
   city.innerHTML = `${response.data.sys.country}`;
   newTemp.innerHTML = Math.round(response.data.main.temp);
   description.innerHTML = response.data.weather[0].description;
