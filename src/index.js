@@ -68,9 +68,15 @@ function showTemperature(response) {
   let newTemp = document.querySelector(".temperature");
   let description = document.querySelector(".description");
   let humidity = document.querySelector(".Humidity");
+  let icon = document.querySelector("#icon");
   newTemp.innerHTML = Math.round(response.data.main.temp);
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = Math.round(response.data.main.humidity);
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 function showCurrentPlaceTemp(response) {
   let city = document.querySelector(".city");
