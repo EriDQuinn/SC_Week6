@@ -34,7 +34,7 @@ function showTemperature(response) {
   let newTemp = document.querySelector(".temperature");
   let description = document.querySelector(".description");
   let humidity = document.querySelector(".humidity");
-  //slet precipitation = document.querySelector(".precipitation");
+  let precipitation = document.querySelector(".precipitation");
   let wind = document.querySelector(".wind-speed");
   let icon = document.querySelector("#icon");
   celciusTemp = Math.round(response.data.main.temp);
@@ -42,7 +42,7 @@ function showTemperature(response) {
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = Math.round(response.data.main.humidity);
   wind.innerHTML = Math.round(response.data.wind.speed);
-  //precipitation.innerHTML = response.data.precipitation.value;
+  precipitation.innerHTML = response.data.rain;
   console.log(response);
   icon.setAttribute(
     "src",
@@ -57,14 +57,14 @@ function showCurrentPlaceTemp(response) {
   let humidity = document.querySelector(".humidity");
   let wind = document.querySelector(".wind-speed");
   let icon = document.querySelector("#icon");
-  //let precipitation = document.querySelector(".precipitation");
+  let precipitation = document.querySelector(".precipitation");
   city.innerHTML = `${response.data.sys.country}`;
   newTemp.innerHTML = Math.round(response.data.main.temp);
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = Math.round(response.data.main.humidity);
   celciusTemp = Math.round(response.data.main.temp);
   wind.innerHTML = Math.round(response.data.wind.speed);
-  //precipitation.innerHTML = response.data.precipitation.value;
+  precipitation.innerHTML = response.data.rain;
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
