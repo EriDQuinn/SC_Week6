@@ -13,6 +13,32 @@ function fahrenheit(event) {
   unidadTempC.classList.remove("active");
   unidadTempF.classList.add("active");
 }
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="card border-info">
+          <h6 class="card-title">${day}</h6>
+          <i class="fas fa-cloud-sun sun-cloud"></i>
+          <p>21ºC</p>
+        </div>
+       `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+
+  console.log(response.data.daily);
+}
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiF = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`;
+  axios.get(apiF).then(displayForecast);
+}
 function buscar(event) {
   event.preventDefault();
 
@@ -49,6 +75,7 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 function showCurrentPlaceTemp(response) {
   let city = document.querySelector(".city");
