@@ -106,6 +106,8 @@ function showCurrentPlaceTemp(response) {
   celciusTemp = Math.round(response.data.main.temp);
   wind.innerHTML = Math.round(response.data.wind.speed);
   precipitation.innerHTML = response.data.rain;
+  unidadTempC.classList.add("active");
+  unidadTempF.classList.remove("active");
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
