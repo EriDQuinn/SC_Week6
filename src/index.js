@@ -13,25 +13,35 @@ function fahrenheit(event) {
   unidadTempC.classList.remove("active");
   unidadTempF.classList.add("active");
 }
+function formatDay(time) {
+  let date = new Date(time * 1000);
+  let day = date.getDay();
+
+  return days[day];
+}
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let forecast = response.data.daily;
-  forecast.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (day, index) {
+    if (index >= 1 && index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="card border-info">
-          <h6 class="card-title">${day.dt}</h6>
+          <h6 class="card-title">${formatDay(day.dt)}</h6>
           <img
-            src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"
+            src="https://openweathermap.org/img/wn/${
+              day.weather[0].icon
+            }@2x.png"
             alt="icon weather img"
             id="forecastIcon"
           />
-          <p>Max T:${day.temp.max} º</p>
-          <p>Min T:${day.temp.min} º</p>
+          <p>MaxT:${Math.round(day.temp.max)} º</p>
+          <p>MinT:${Math.round(day.temp.min)} º</p>
         </div>
        `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -39,7 +49,7 @@ function displayForecast(response) {
 }
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiF = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`;
+  let apiF = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiF).then(displayForecast);
 }
 function buscar(event) {
@@ -112,7 +122,7 @@ function showPosition(response) {
     .get(`${apiUrl}&appid=${apiKey}&lat=${latitude}&lon=${longitude}`)
     .then(showCurrentPlaceTemp);
 
-  let apiF = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  let apiF = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiF).then(displayForecast);
 }
 
@@ -120,7 +130,6 @@ function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-
 let days = [
   "Sunday",
   "Monday",
