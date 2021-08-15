@@ -54,7 +54,8 @@ function getForecast(coordinates) {
 }
 function buscar(event) {
   event.preventDefault();
-
+  unidadTempC.classList.add("active");
+  unidadTempF.classList.remove("active");
   let cityInput = document.querySelector("#ciudadBuscar");
   console.log(cityInput.value);
 
