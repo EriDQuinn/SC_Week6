@@ -99,6 +99,7 @@ function showCurrentPlaceTemp(response) {
   let wind = document.querySelector(".wind-speed");
   let icon = document.querySelector("#icon");
   let precipitation = document.querySelector(".precipitation");
+  console.log(response.data.rain);
   city.innerHTML = `${response.data.sys.country}`;
   newTemp.innerHTML = Math.round(response.data.main.temp);
   description.innerHTML = response.data.weather[0].description;
