@@ -71,6 +71,7 @@ function buscar(event) {
   }
 }
 function showTemperature(response) {
+  console.log(response.data.rain);
   let newTemp = document.querySelector(".temperature");
   let description = document.querySelector(".description");
   let humidity = document.querySelector(".humidity");
@@ -82,7 +83,8 @@ function showTemperature(response) {
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = Math.round(response.data.main.humidity);
   wind.innerHTML = Math.round(response.data.wind.speed);
-  precipitation.innerHTML = response.data.rain;
+  /*rain only works when it is raining */
+  precipitation.innerHTML = response.data.rain["1h"];
   console.log(response);
   icon.setAttribute(
     "src",
@@ -92,6 +94,7 @@ function showTemperature(response) {
   getForecast(response.data.coord);
 }
 function showCurrentPlaceTemp(response) {
+  console.log(response.data.rain);
   let city = document.querySelector(".city");
   let newTemp = document.querySelector(".temperature");
   let description = document.querySelector(".description");
@@ -99,14 +102,16 @@ function showCurrentPlaceTemp(response) {
   let wind = document.querySelector(".wind-speed");
   let icon = document.querySelector("#icon");
   let precipitation = document.querySelector(".precipitation");
-  console.log(response.data.rain);
+
   city.innerHTML = `${response.data.sys.country}`;
   newTemp.innerHTML = Math.round(response.data.main.temp);
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = Math.round(response.data.main.humidity);
   celciusTemp = Math.round(response.data.main.temp);
   wind.innerHTML = Math.round(response.data.wind.speed);
-  precipitation.innerHTML = response.data.rain;
+  /*rain only works when it is raining */
+  precipitation.innerHTML = response.data.rain["1h"];
+
   unidadTempC.classList.add("active");
   unidadTempF.classList.remove("active");
   icon.setAttribute(
